@@ -1,0 +1,65 @@
+﻿<Window x:Class="_03_homework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_03_homework"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Копіювання директорії"
+                   FontSize="22" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <Grid Grid.Row="1" Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtSource" Height="30" 
+                     VerticalContentAlignment="Center" Margin="0,0,10,0"/>
+
+            <Button Grid.Column="1" Content="Огляд..."
+                    Click="SelectSource_Click" Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtDestination" Height="30" 
+             VerticalContentAlignment="Center" Margin="0,0,10,0"/>
+
+            <Button Grid.Column="1" Content="Огляд..."
+            Click="SelectDestination_Click" Height="30"/>
+        </Grid>
+
+        <StackPanel Grid.Row="3">
+            <ProgressBar x:Name="progressBar" Height="25"
+                         Minimum="0" Maximum="100" Value="0"/>
+
+            <TextBlock x:Name="txtProgress" Text="Прогрес: 0%"
+                       HorizontalAlignment="Center" Margin="0,8,0,15"/>
+
+            <Button x:Name="btnStart" Content="Старт" Width="140"
+                    Height="35" HorizontalAlignment="Center"
+                    Click="Start_Click"/>
+        </StackPanel>
+
+        <TextBlock x:Name="txtStatus" Grid.Row="4"
+                   Text="Очікування запуску..."
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   Margin="0,15,0,0"/>
+    </Grid>
+</Window>
